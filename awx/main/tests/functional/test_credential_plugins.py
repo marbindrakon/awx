@@ -95,8 +95,8 @@ def test_hashivault_handle_auth_kubernetes():
 
 def test_hashivault_handle_auth_client_cert():
     kwargs = {
-        'client_cert_public': "",
-        'client_cert_private': "",
+        'client_cert_public': "foo",
+        'client_cert_private': "bar",
         'client_cert_role': 'test-cert-1',
     }
     auth_params = {
@@ -105,7 +105,7 @@ def test_hashivault_handle_auth_client_cert():
     with mock.patch.object(hashivault, 'method_auth') as method_mock:
         method_mock.return_value = 'the_token'
         token = hashivault.handle_auth(**kwargs)
-        method_mock.assert_called_with(**kwargs, auth_param=kwargs)
+        method_mock.assert_called_with(**kwargs, auth_param=auth_params)
         assert token == 'the_token'
 
 
