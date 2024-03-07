@@ -1197,6 +1197,10 @@ class RunProjectUpdate(BaseTask):
         if galaxy_server_list:
             env['ANSIBLE_GALAXY_SERVER_LIST'] = ','.join(galaxy_server_list)
 
+        # Extend environment with PROJECT_UPDATE_ENV (i.e. for SCM-only proxy)
+        for key,value in settings.PROJECT_UPDATE_ENV.items():
+            env[key] = value
+
         return env
 
     def _build_scm_url_extra_vars(self, project_update):

@@ -86,6 +86,7 @@ function JobsEdit() {
       ),
       AWX_TASK_ENV: formatJson(form.AWX_TASK_ENV),
       GALAXY_TASK_ENV: formatJson(form.GALAXY_TASK_ENV),
+      PROJECT_UPDATE_ENV: formatJson(form.PROJECT_UPDATE_ENV),
       DEFAULT_CONTAINER_RUN_OPTIONS: formatJson(
         form.DEFAULT_CONTAINER_RUN_OPTIONS
       ),
@@ -236,6 +237,7 @@ function JobsEdit() {
                   name="GALAXY_TASK_ENV"
                   config={jobs.GALAXY_TASK_ENV}
                 />
+                <ObjectField name="PROJECT_UPDATE_ENV" config={jobs.PROJECT_UPDATE_ENV} />
                 {submitError && <FormSubmitError error={submitError} />}
                 {revertError && <FormSubmitError error={revertError} />}
               </FormColumnLayout>

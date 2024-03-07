@@ -297,6 +297,17 @@ register(
 )
 
 register(
+    'PROJECT_UPDATE_ENV',
+    field_class=fields.KeyValueField,
+    default={},
+    label=_('Project Update Environment Variables'),
+    help_text=_('Additional environment variables set for just project updates. Combined with AWX_TASK_ENV.'),
+    category=_('Jobs'),
+    category_slug='jobs',
+    placeholder={'HTTP_PROXY': 'myproxy.local:8080'},
+)
+
+register(
     'AWX_RUNNER_KEEPALIVE_SECONDS',
     field_class=fields.IntegerField,
     label=_('K8S Ansible Runner Keep-Alive Message Interval'),

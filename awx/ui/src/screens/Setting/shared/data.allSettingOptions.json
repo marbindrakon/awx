@@ -257,6 +257,23 @@
                   "read_only": false
               }
           },
+          "PROJECT_UPDATE_ENV": {
+              "type": "nested object",
+              "required": false,
+              "label": "Project Update Environment Variables",
+              "help_text": "Additional environment variables set for project updates only. Combined with AWX_TASK_ENV.",
+              "category": "Jobs",
+              "category_slug": "jobs",
+              "placeholder": {
+                  "HTTP_PROXY": "myproxy.local:8080"
+              },
+              "default": {},
+              "child": {
+                  "type": "string",
+                  "required": true,
+                  "read_only": false
+              }
+          },
           "AWX_RUNNER_KEEPALIVE_SECONDS": {
               "type": "integer",
               "required": true,
@@ -4659,6 +4676,17 @@
               "type": "nested object",
               "label": "Extra Environment Variables",
               "help_text": "Additional environment variables set for playbook runs, inventory updates, project updates, and notification sending.",
+              "category": "Jobs",
+              "category_slug": "jobs",
+              "defined_in_file": false,
+              "child": {
+                  "type": "string"
+              }
+          },
+          "PROJECT_UPDATE_ENV": {
+              "type": "nested object",
+              "label": "Project Update Environment Variables",
+              "help_text": "Additional environment variables set for just project updates. Combined with AWX_TASK_ENV.",
               "category": "Jobs",
               "category_slug": "jobs",
               "defined_in_file": false,

@@ -603,6 +603,10 @@ AWX_TASK_ENV = {}
 # to fetch Ansible content - roles and collections
 GALAXY_TASK_ENV = {'ANSIBLE_FORCE_COLOR': 'false', 'GIT_SSH_COMMAND': "ssh -o StrictHostKeyChecking=no"}
 
+# Additional environment variables to apply when running a project update job
+# This can be used to supply a proxy just for project updates
+PROJECT_UPDATE_ENV = {}
+
 # Rebuild Host Smart Inventory memberships.
 AWX_REBUILD_SMART_MEMBERSHIP = False
 
